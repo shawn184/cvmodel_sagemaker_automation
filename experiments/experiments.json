@@ -1,0 +1,192 @@
+{
+  "object_detection_reference": [
+    {
+      "experiment_id": "exp-001",
+      "model": "yolo",
+      "model_version": 1,
+      "hyperparameters": {
+        "lr0": 0.01,
+        "batch_size": 16,
+        "imgsz": 640,
+        "epochs": 50
+      },
+      "metrics": {
+        "map_50": 0.81,
+        "map_50_95": 0.72,
+        "precision": 0.89,
+        "recall": 0.84,
+        "f1": 0.86,
+        "latency_ms": 31,
+        "model_size_mb": 22.5
+      },
+      "status": "registered",
+      "is_champion": true,
+      "training_date": "2026-08-15T09:20:00Z"
+    },
+    {
+      "experiment_id": "exp-002",
+      "model": "rt_detr",
+      "model_version": 2,
+      "hyperparameters": {
+        "lr0": 0.0001,
+        "batch_size": 8,
+        "imgsz": 640,
+        "epochs": 50
+      },
+      "metrics": {
+        "map_50": 0.83,
+        "map_50_95": 0.74,
+        "precision": 0.9,
+        "recall": 0.83,
+        "f1": 0.86,
+        "latency_ms": 44,
+        "model_size_mb": 41.0
+      },
+      "status": "registered",
+      "is_champion": false,
+      "training_date": "2026-08-22T14:05:00Z"
+    }
+  ],
+  "object_detection_amg": [
+    {
+      "experiment_id": "exp-xom8w9buioh8",
+      "execution_arn": "arn:aws:sagemaker:ap-southeast-1:654906373546:pipeline/ObjectDetectionAmgTrainingPipeline/execution/xom8w9buioh8",
+      "model": "yolo",
+      "model_version": null,
+      "hyperparameters": {
+        "batch": 32,
+        "epochs": 100,
+        "imgsz": 640,
+        "lr0": 0.01,
+        "optimizer": "SGD",
+        "patience": 20,
+        "weight_decay": 0.0005
+      },
+      "metrics": {
+        "map_50": 0.6681,
+        "map_50_95": 0.4438,
+        "precision": 0.6902,
+        "recall": 0.5762,
+        "f1": 0.6281,
+        "latency_ms": 27.87,
+        "model_size_mb": 5.46
+      },
+      "model_artifact": "s3://lta-sam-sandbox/agent_automation/object_detection_amg/models/pipelines-xom8w9buioh8-TrainModel-pS1J9RKXGY/output/model.tar.gz",
+      "status": "rejected",
+      "is_champion": false,
+      "training_date": "2026-09-10T05:02:07Z"
+    },
+    {
+      "experiment_id": "exp-27mle7u3duof",
+      "execution_arn": "arn:aws:sagemaker:ap-southeast-1:654906373546:pipeline/ObjectDetectionAmgTrainingPipeline/execution/27mle7u3duof",
+      "model": "rt_detr",
+      "model_version": null,
+      "hyperparameters": {
+        "batch": 16,
+        "epochs": 100,
+        "imgsz": 640,
+        "lr0": 0.0001,
+        "optimizer": "AdamW",
+        "patience": 20,
+        "weight_decay": 0.0005
+      },
+      "metrics": {
+        "map_50": 0.7204,
+        "map_50_95": 0.5217,
+        "precision": 0.5881,
+        "recall": 0.6866,
+        "f1": 0.6335,
+        "latency_ms": 58.65,
+        "model_size_mb": 66.29
+      },
+      "model_artifact": "s3://lta-sam-sandbox/agent_automation/object_detection_amg/models/pipelines-27mle7u3duof-TrainModel-v4QuCxFSEb/output/model.tar.gz",
+      "status": "rejected",
+      "is_champion": false,
+      "training_date": "2026-09-10T06:27:29Z"
+    },
+    {
+      "experiment_id": "exp-4ov0xp8t73zs",
+      "execution_arn": "arn:aws:sagemaker:ap-southeast-1:654906373546:pipeline/ObjectDetectionAmgTrainingPipeline/execution/4ov0xp8t73zs",
+      "model": "rt_detr",
+      "model_version": null,
+      "hyperparameters": {
+        "batch": 16,
+        "epochs": 100,
+        "imgsz": 640,
+        "lr0": 0.0005,
+        "optimizer": "AdamW",
+        "patience": 20,
+        "weight_decay": 0.0005
+      },
+      "metrics": {
+        "map_50": 0.7186,
+        "map_50_95": 0.5371,
+        "precision": 0.6671,
+        "recall": 0.6601,
+        "f1": 0.6636,
+        "latency_ms": 60.03,
+        "model_size_mb": 66.29
+      },
+      "model_artifact": "s3://lta-sam-sandbox/agent_automation/object_detection_amg/models/pipelines-4ov0xp8t73zs-TrainModel-zoR7XKtwK4/output/model.tar.gz",
+      "status": "rejected",
+      "is_champion": false,
+      "training_date": "2026-09-10T07:40:54Z"
+    },
+    {
+      "experiment_id": "exp-2wgavatdxvvs",
+      "execution_arn": "arn:aws:sagemaker:ap-southeast-1:654906373546:pipeline/ObjectDetectionAmgTrainingPipeline/execution/2wgavatdxvvs",
+      "model": "rt_detr",
+      "model_version": null,
+      "hyperparameters": {
+        "batch": 16,
+        "epochs": 100,
+        "imgsz": 640,
+        "lr0": 5e-05,
+        "optimizer": "AdamW",
+        "patience": 20,
+        "weight_decay": 0.0005
+      },
+      "metrics": {
+        "map_50": 0.5698,
+        "map_50_95": 0.405,
+        "precision": 0.5067,
+        "recall": 0.6226,
+        "f1": 0.5587,
+        "latency_ms": 57.39,
+        "model_size_mb": 66.29
+      },
+      "model_artifact": "s3://lta-sam-sandbox/agent_automation/object_detection_amg/models/pipelines-2wgavatdxvvs-TrainModel-ahdbieLu1N/output/model.tar.gz",
+      "status": "rejected",
+      "is_champion": false,
+      "training_date": "2026-09-10T09:07:45Z"
+    },
+    {
+      "experiment_id": "exp-n42x3fyo2qn3",
+      "execution_arn": "arn:aws:sagemaker:ap-southeast-1:654906373546:pipeline/ObjectDetectionAmgTrainingPipeline/execution/n42x3fyo2qn3",
+      "model": "rt_detr",
+      "model_version": null,
+      "hyperparameters": {
+        "batch": 16,
+        "epochs": 100,
+        "imgsz": 640,
+        "lr0": 0.0001,
+        "optimizer": "AdamW",
+        "patience": 20,
+        "weight_decay": 0.0001
+      },
+      "metrics": {
+        "map_50": 0.6601,
+        "map_50_95": 0.4923,
+        "precision": 0.7117,
+        "recall": 0.5871,
+        "f1": 0.6434,
+        "latency_ms": 58.96,
+        "model_size_mb": 66.29
+      },
+      "model_artifact": "s3://lta-sam-sandbox/agent_automation/object_detection_amg/models/pipelines-n42x3fyo2qn3-TrainModel-Qpvlcq4UC4/output/model.tar.gz",
+      "status": "rejected",
+      "is_champion": false,
+      "training_date": "2026-09-10T10:29:04Z"
+    }
+  ]
+}

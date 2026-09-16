@@ -1,0 +1,54 @@
+{
+  "Comment": "Least-privilege policy for the process that hosts the orchestrator agent. The agent receives capabilities, not unrestricted infrastructure access: it may invoke Bedrock, start/inspect the approved pipeline, and read approved results only. Replace ACCOUNT, REGION and BUCKET placeholders before attaching.",
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "InvokeBedrockModel",
+      "Effect": "Allow",
+      "Action": ["bedrock:InvokeModel", "bedrock:InvokeModelWithResponseStream"],
+      "Resource": "arn:aws:bedrock:REGION::foundation-model/anthropic.*"
+    },
+    {
+      "Sid": "StartAndInspectApprovedPipeline",
+      "Effect": "Allow",
+      "Action": [
+        "sagemaker:StartPipelineExecution",
+        "sagemaker:DescribePipeline",
+        "sagemaker:DescribePipelineExecution",
+        "sagemaker:ListPipelineExecutionSteps"
+      ],
+      "Resource": "arn:aws:sagemaker:REGION:ACCOUNT:pipeline/*TrainingPipeline"
+    },
+    {
+      "Sid": "ReadApprovedExperimentResults",
+      "Effect": "Allow",
+      "Action": ["s3:GetObject", "s3:ListBucket"],
+      "Resource": [
+        "arn:aws:s3:::BUCKET",
+        "arn:aws:s3:::BUCKET/PREFIX/*/evaluation-results/*",
+        "arn:aws:s3:::BUCKET/PREFIX/datasets/*"
+      ]
+    },
+    {
+      "Sid": "RegisterModelVersions",
+      "Effect": "Allow",
+      "Action": [
+        "sagemaker:CreateModelPackage",
+        "sagemaker:CreateModelPackageGroup",
+        "sagemaker:DescribeModelPackageGroup"
+      ],
+      "Resource": "arn:aws:sagemaker:REGION:ACCOUNT:model-package*/*"
+    },
+    {
+      "Sid": "ExplicitlyDeniedDangerousActions",
+      "Effect": "Deny",
+      "Action": [
+        "ec2:RunInstances",
+        "iam:*",
+        "s3:DeleteBucket",
+        "s3:DeleteObject"
+      ],
+      "Resource": "*"
+    }
+  ]
+}

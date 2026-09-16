@@ -1,0 +1,4 @@
+# Installed by SageMaker's prebuilt PyTorch container at job start.
+# torch/torchvision come with the container; do not pin them here.
+ultralytics>=8.3,<9
+pyyaml>=6.0

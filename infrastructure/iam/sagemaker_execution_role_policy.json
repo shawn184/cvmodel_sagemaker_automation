@@ -1,0 +1,54 @@
+{
+  "Comment": "Least-privilege policy for the SageMaker execution role that training/processing jobs and pipelines assume. Read dataset, pull training image, write artifacts + logs, register models. Replace ACCOUNT, REGION, BUCKET and PREFIX placeholders (PREFIX = CV_MLOPS_S3_PREFIX without trailing slash; also grant read on any dataset URIs used by project YAMLs). Attach to a role whose trust policy allows sagemaker.amazonaws.com to assume it.",
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "ReadDatasetsWriteArtifacts",
+      "Effect": "Allow",
+      "Action": ["s3:GetObject", "s3:PutObject", "s3:ListBucket"],
+      "Resource": [
+        "arn:aws:s3:::BUCKET",
+        "arn:aws:s3:::BUCKET/PREFIX/datasets/*",
+        "arn:aws:s3:::BUCKET/PREFIX/*/models/*",
+        "arn:aws:s3:::BUCKET/PREFIX/*/evaluation-results/*",
+        "arn:aws:s3:::BUCKET/PREFIX/*/pipeline-artifacts/*"
+      ]
+    },
+    {
+      "Sid": "PullTrainingImageFromECR",
+      "Effect": "Allow",
+      "Action": [
+        "ecr:GetAuthorizationToken",
+        "ecr:BatchCheckLayerAvailability",
+        "ecr:GetDownloadUrlForLayer",
+        "ecr:BatchGetImage"
+      ],
+      "Resource": "*"
+    },
+    {
+      "Sid": "RunManagedTrainingAndProcessing",
+      "Effect": "Allow",
+      "Action": [
+        "sagemaker:CreateTrainingJob",
+        "sagemaker:DescribeTrainingJob",
+        "sagemaker:CreateProcessingJob",
+        "sagemaker:DescribeProcessingJob",
+        "sagemaker:CreateModel",
+        "sagemaker:CreateModelPackage",
+        "sagemaker:CreateModelPackageGroup"
+      ],
+      "Resource": "arn:aws:sagemaker:REGION:ACCOUNT:*"
+    },
+    {
+      "Sid": "WriteLogsAndMetrics",
+      "Effect": "Allow",
+      "Action": [
+        "logs:CreateLogGroup",
+        "logs:CreateLogStream",
+        "logs:PutLogEvents",
+        "cloudwatch:PutMetricData"
+      ],
+      "Resource": "*"
+    }
+  ]
+}

@@ -1,0 +1,63 @@
+# Second project: demonstrates that a completely different CV project runs on
+# the SAME framework purely by changing config — different dataset, classes,
+# approved models and thresholds; no code changes.
+
+project_name: object_detection_amg
+task_type: object_detection
+
+dataset:
+  train: s3://lta-sam-sandbox/amg_va/test_data_for_agent/train/
+  validation: s3://lta-sam-sandbox/amg_va/test_data_for_agent/val/
+  test: s3://lta-sam-sandbox/amg_va/test_data_for_agent/test/
+  annotation_format: coco
+  classes:
+    - person
+    - bike
+    - shared bike - Anywheel
+    - shared bike - HelloRide
+    - e-bike
+    - skateboard
+    - hoverboard
+    - segway
+    - e-scooter
+    - kick scooter
+    - unicycle
+    - mobility scooter
+    - wheelchair
+    - stroller
+    - trolley
+    - roller skate
+    - motorbike
+
+target_metrics:
+  map_50_95: 0.45
+  recall: 0.70
+
+training:
+  instance_type: ml.g4dn.xlarge
+  max_gpu_hours: 8
+  max_runtime_seconds: 28800
+
+approved_models: [yolo, rt_detr]
+
+quality_gate:
+  map_50_95: 0.45
+  recall: 0.70
+  max_latency_ms: 100
+
+# Keyed by model architecture (see catalog). First value = default; the first
+# run of each model always uses the defaults.
+hyperparameter_space:
+  cnn:  # YOLO family (Ultralytics arg names)
+    imgsz: [640]
+    batch: [32]
+    lr0: [0.01, 0.003, 0.005]
+    weight_decay: [0.0005, 0.0001, 0.001]
+    patience: [20]
+  transformer:  # RT-DETR trains with AdamW (see catalog), so lr0 is in the 1e-4 range
+    epochs: [100]
+    batch: [16]
+    imgsz: [640]
+    lr0: [0.0001, 0.0005, 0.00005]
+    weight_decay: [0.0005, 0.0001, 0.00005]
+    patience: [20]

@@ -1,0 +1,54 @@
+# Reference project: the first object-detection use case the reusable framework
+# is built and validated against.
+#
+# This is deliberately generic — the specific object classes are just different
+# values of `classes` + a different dataset path. Onboarding a new CV project
+# means copying this file and changing configuration, not code.
+
+project_name: object_detection_reference
+task_type: object_detection
+
+dataset:
+  train: s3://cv-agentic-mlops-654906373546-ap-southeast-1/datasets/object-detection-reference/v001/train/
+  validation: s3://cv-agentic-mlops-654906373546-ap-southeast-1/datasets/object-detection-reference/v001/validation/
+  test: s3://cv-agentic-mlops-654906373546-ap-southeast-1/datasets/object-detection-reference/v001/test/
+  annotation_format: yolo
+  # Replace with the real class list for the specific dataset being onboarded.
+  classes: [class_0, class_1, class_2]
+
+# The performance we ultimately want (used for reasoning, not the hard gate).
+target_metrics:
+  map_50_95: 0.70
+  recall: 0.85
+
+training:
+  instance_type: ml.g5.xlarge
+  max_gpu_hours: 5
+  max_runtime_seconds: 18000
+
+# The agent may only choose among these (subset of catalog/approved_models.yaml).
+approved_models: [yolo, rt_detr]
+
+# Deterministic PASS/FAIL thresholds. Pure program logic decides this — never
+# the LLM.
+quality_gate:
+  map_50_95: 0.75
+  recall: 0.85
+  max_latency_ms: 50
+
+# Keyed by model architecture (see catalog). First value = default; the first
+# run of each model always uses the defaults.
+hyperparameter_space:
+  cnn:  # YOLO family (Ultralytics arg names)
+    imgsz: [640]
+    batch: [32]
+    lr0: [0.01, 0.003, 0.005]
+    weight_decay: [0.0005, 0.0001, 0.001]
+    patience: [20]
+  transformer:  # RT-DETR trains with AdamW (see catalog), so lr0 is in the 1e-4 range
+    epochs: [100]
+    batch: [16]
+    imgsz: [640]
+    lr0: [0.0001, 0.0005, 0.00005]
+    weight_decay: [0.0005, 0.0001, 0.00005]
+    patience: [100]

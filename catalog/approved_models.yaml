@@ -1,0 +1,64 @@
+# Approved model catalogue.
+#
+# The agent may ONLY select from this list. It is not asked to know every CV
+# architecture — it is asked to make a governed choice among approved options
+# given project requirements + historical experiments.
+#
+# Each entry maps to a training container + default hyperparameters that the
+# SageMaker training job understands (see training/train.py).
+
+models:
+  - id: yolo
+    display_name: "YOLO (Ultralytics YOLO11n)"
+    family: yolo
+    architecture: cnn  # selects the project's hyperparameter_space entry
+    framework: ultralytics
+    tasks: [object_detection]
+    # Base weights the training container will fine-tune from.
+    base_weights: "yolo11n.pt"
+    strengths:
+      - "Fast inference / low latency"
+      - "Strong accuracy-per-compute for real-time video analytics"
+    typical_latency_ms: 25
+    # Fallbacks for keys the project search space does not cover.
+    default_hyperparameters:
+      epochs: 100
+      batch: 16
+      imgsz: 640
+      lr0: 0.01
+      optimizer: SGD
+
+  - id: faster_rcnn
+    display_name: "Faster R-CNN (torchvision)"
+    family: faster_rcnn
+    architecture: cnn
+    framework: torchvision
+    tasks: [object_detection]
+    base_weights: "fasterrcnn_resnet50_fpn"
+    strengths:
+      - "High accuracy on small/dense objects"
+      - "Mature, well-understood two-stage detector"
+    typical_latency_ms: 70
+    default_hyperparameters:
+      epochs: 100
+      batch_size: 8
+      imgsz: 800
+      lr0: 0.005
+
+  - id: rt_detr
+    display_name: "RT-DETR (Ultralytics)"
+    family: rt_detr
+    architecture: transformer
+    framework: ultralytics
+    tasks: [object_detection]
+    base_weights: "rtdetr-l.pt"
+    strengths:
+      - "Transformer detector, no NMS"
+      - "Good accuracy at competitive latency"
+    typical_latency_ms: 40
+    default_hyperparameters:  # AdamW is the usual RT-DETR recipe; fixed so lr0 takes effect
+      epochs: 100
+      batch: 16
+      imgsz: 640
+      lr0: 0.0001
+      optimizer: AdamW
