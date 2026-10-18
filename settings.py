@@ -48,7 +48,7 @@ AWS_REGION = os.environ.get("AWS_REGION") or os.environ.get("AWS_DEFAULT_REGION"
 # Canonical S3 bucket for the framework. Kept in one place so a single project
 # config change can point at a different bucket.
 # NOTE: not created by this code — see infrastructure/README.md.
-S3_BUCKET = os.environ.get("CV_MLOPS_BUCKET", "lta-sam-sandbox")
+S3_BUCKET = os.environ.get("CV_MLOPS_BUCKET", "your-s3-bucket")
 
 # Base prefix inside the bucket; every output lands below it. Empty = bucket root.
 S3_BASE_PREFIX = os.environ.get("CV_MLOPS_S3_PREFIX", "agent_automation/").strip("/")

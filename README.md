@@ -286,7 +286,7 @@ stay unchanged.
 | Need | Why | How |
 |---|---|---|
 | Dataset in S3 | Inputs for the pipeline | `<split>/images/*.jpg` + `<split>/labels/*.txt` (YOLO format) per `dataset.*` URI in the project YAML. No `data.yaml` needed. |
-| S3 location you can write to | Model artifacts + `metrics.json` | Default `s3://lta-sam-sandbox/agent_automation/`; override with `CV_MLOPS_BUCKET` / `CV_MLOPS_S3_PREFIX` |
+| S3 location you can write to | Model artifacts + `metrics.json` | Default `s3://your-s3-bucket/agent_automation/`; override with `CV_MLOPS_BUCKET` / `CV_MLOPS_S3_PREFIX` |
 | Container image | None to build. Jobs run AWS's prebuilt PyTorch image (`pytorch-training:2.8-{gpu,cpu}-py312`) and install `training/requirements.txt` (Ultralytics) at start, so no Docker or ECR is involved. Jobs need outbound internet for pip and base weights. | Optional: `CV_MLOPS_PYTORCH_VERSION` / `CV_MLOPS_PY_VERSION` |
 | SageMaker execution role | Assumed by the jobs to read S3, pull the AWS image, write outputs | `export CV_MLOPS_SAGEMAKER_ROLE=arn:aws:iam::<acct>:role/<role>` (policy: `infrastructure/iam/sagemaker_execution_role_policy.json`) |
 | Permissions for your CLI user | Create/start pipelines, pass the role, upload code to the bucket, invoke Bedrock | `infrastructure/iam/agent_runtime_policy.json` |
@@ -296,7 +296,7 @@ stay unchanged.
 
 ```bash
 export AWS_REGION=ap-southeast-1
-export CV_MLOPS_BUCKET=lta-sam-sandbox          # default
+export CV_MLOPS_BUCKET=your-s3-bucket          # default
 export CV_MLOPS_S3_PREFIX=agent_automation/     # default
 export CV_MLOPS_SAGEMAKER_ROLE=arn:aws:iam::<acct>:role/<execution-role>
 
@@ -334,7 +334,7 @@ uv run python cli.py watch `project_name` EXECUTION_ARN   # --interval 2 for 2-m
 ### What each stage produces
 
 `$OUT` below is `s3://$CV_MLOPS_BUCKET/$CV_MLOPS_S3_PREFIX`, by default
-`s3://lta-sam-sandbox/agent_automation/`. All S3 output lands under
+`s3://your-s3-bucket/agent_automation/`. All S3 output lands under
 `$OUT/<project>/`, split into `models/`, `evaluation-results/` and
 `pipeline-artifacts/`.
 
@@ -479,7 +479,7 @@ take precedence.
 | Variable | Meaning | Default |
 |---|---|---|
 | `AWS_REGION` | AWS region | `ap-southeast-1` |
-| `CV_MLOPS_BUCKET` | S3 bucket for models/results/pipeline artifacts | `lta-sam-sandbox` |
+| `CV_MLOPS_BUCKET` | S3 bucket for models/results/pipeline artifacts | `your-s3-bucket` |
 | `CV_MLOPS_S3_PREFIX` | Prefix inside that bucket under which all output is written | `agent_automation/` |
 | `CV_MLOPS_BEDROCK_MODEL` | Bedrock model id for the agent | a Claude model |
 | `CV_MLOPS_SAGEMAKER_ROLE` | SageMaker execution role ARN | unset (blocks execution) |

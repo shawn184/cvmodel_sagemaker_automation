@@ -9,7 +9,7 @@ exactly what must exist and which permissions to request.
 
 | Resource | Purpose | Notes |
 |---|---|---|
-| S3 bucket + prefix | Model artifacts, evaluation results, pipeline artifacts | Layout below; set in `settings.py` (`CV_MLOPS_BUCKET`, `CV_MLOPS_S3_PREFIX`); default `s3://lta-sam-sandbox/agent_automation/` |
+| S3 bucket + prefix | Model artifacts, evaluation results, pipeline artifacts | Layout below; set in `settings.py` (`CV_MLOPS_BUCKET`, `CV_MLOPS_S3_PREFIX`); default `s3://your-s3-bucket/agent_automation/` |
 | Container image | Training/evaluation runtime | Nothing to provision: AWS's prebuilt PyTorch image (`763104351884.dkr.ecr.<region>.amazonaws.com/pytorch-training`) + `training/requirements.txt` |
 | SageMaker execution role | Role the training/processing jobs + pipeline assume | Policy: `iam/sagemaker_execution_role_policy.json` |
 | Agent runtime identity | Permissions for the process hosting the orchestrator | Policy: `iam/agent_runtime_policy.json` |

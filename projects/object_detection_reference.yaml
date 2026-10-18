@@ -9,9 +9,9 @@ project_name: object_detection_reference
 task_type: object_detection
 
 dataset:
-  train: s3://cv-agentic-mlops-654906373546-ap-southeast-1/datasets/object-detection-reference/v001/train/
-  validation: s3://cv-agentic-mlops-654906373546-ap-southeast-1/datasets/object-detection-reference/v001/validation/
-  test: s3://cv-agentic-mlops-654906373546-ap-southeast-1/datasets/object-detection-reference/v001/test/
+  train: s3://your-dataset-bucket/datasets/object-detection-reference/v001/train/
+  validation: s3://your-dataset-bucket/datasets/object-detection-reference/v001/validation/
+  test: s3://your-dataset-bucket/datasets/object-detection-reference/v001/test/
   annotation_format: yolo
   # Replace with the real class list for the specific dataset being onboarded.
   classes: [class_0, class_1, class_2]

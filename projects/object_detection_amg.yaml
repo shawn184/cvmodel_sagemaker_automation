@@ -6,9 +6,9 @@ project_name: object_detection_amg
 task_type: object_detection
 
 dataset:
-  train: s3://lta-sam-sandbox/amg_va/test_data_for_agent/train/
-  validation: s3://lta-sam-sandbox/amg_va/test_data_for_agent/val/
-  test: s3://lta-sam-sandbox/amg_va/test_data_for_agent/test/
+  train: s3://your-s3-bucket/amg_va/test_data_for_agent/train/
+  validation: s3://your-s3-bucket/amg_va/test_data_for_agent/val/
+  test: s3://your-s3-bucket/amg_va/test_data_for_agent/test/
   annotation_format: coco
   classes:
     - person

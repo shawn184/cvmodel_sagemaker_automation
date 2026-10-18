@@ -50,7 +50,7 @@
   "object_detection_amg": [
     {
       "experiment_id": "exp-xom8w9buioh8",
-      "execution_arn": "arn:aws:sagemaker:ap-southeast-1:654906373546:pipeline/ObjectDetectionAmgTrainingPipeline/execution/xom8w9buioh8",
+      "execution_arn": "arn:aws:sagemaker:ap-southeast-1:123456789012:pipeline/ObjectDetectionAmgTrainingPipeline/execution/xom8w9buioh8",
       "model": "yolo",
       "model_version": null,
       "hyperparameters": {
@@ -71,14 +71,14 @@
         "latency_ms": 27.87,
         "model_size_mb": 5.46
       },
-      "model_artifact": "s3://lta-sam-sandbox/agent_automation/object_detection_amg/models/pipelines-xom8w9buioh8-TrainModel-pS1J9RKXGY/output/model.tar.gz",
+      "model_artifact": "s3://your-s3-bucket/agent_automation/object_detection_amg/models/pipelines-xom8w9buioh8-TrainModel-pS1J9RKXGY/output/model.tar.gz",
       "status": "rejected",
       "is_champion": false,
       "training_date": "2026-09-10T05:02:07Z"
     },
     {
       "experiment_id": "exp-27mle7u3duof",
-      "execution_arn": "arn:aws:sagemaker:ap-southeast-1:654906373546:pipeline/ObjectDetectionAmgTrainingPipeline/execution/27mle7u3duof",
+      "execution_arn": "arn:aws:sagemaker:ap-southeast-1:123456789012:pipeline/ObjectDetectionAmgTrainingPipeline/execution/27mle7u3duof",
       "model": "rt_detr",
       "model_version": null,
       "hyperparameters": {
@@ -99,14 +99,14 @@
         "latency_ms": 58.65,
         "model_size_mb": 66.29
       },
-      "model_artifact": "s3://lta-sam-sandbox/agent_automation/object_detection_amg/models/pipelines-27mle7u3duof-TrainModel-v4QuCxFSEb/output/model.tar.gz",
+      "model_artifact": "s3://your-s3-bucket/agent_automation/object_detection_amg/models/pipelines-27mle7u3duof-TrainModel-v4QuCxFSEb/output/model.tar.gz",
       "status": "rejected",
       "is_champion": false,
       "training_date": "2026-09-10T06:27:29Z"
     },
     {
       "experiment_id": "exp-4ov0xp8t73zs",
-      "execution_arn": "arn:aws:sagemaker:ap-southeast-1:654906373546:pipeline/ObjectDetectionAmgTrainingPipeline/execution/4ov0xp8t73zs",
+      "execution_arn": "arn:aws:sagemaker:ap-southeast-1:123456789012:pipeline/ObjectDetectionAmgTrainingPipeline/execution/4ov0xp8t73zs",
       "model": "rt_detr",
       "model_version": null,
       "hyperparameters": {
@@ -127,14 +127,14 @@
         "latency_ms": 60.03,
         "model_size_mb": 66.29
       },
-      "model_artifact": "s3://lta-sam-sandbox/agent_automation/object_detection_amg/models/pipelines-4ov0xp8t73zs-TrainModel-zoR7XKtwK4/output/model.tar.gz",
+      "model_artifact": "s3://your-s3-bucket/agent_automation/object_detection_amg/models/pipelines-4ov0xp8t73zs-TrainModel-zoR7XKtwK4/output/model.tar.gz",
       "status": "rejected",
       "is_champion": false,
       "training_date": "2026-09-10T07:40:54Z"
     },
     {
       "experiment_id": "exp-2wgavatdxvvs",
-      "execution_arn": "arn:aws:sagemaker:ap-southeast-1:654906373546:pipeline/ObjectDetectionAmgTrainingPipeline/execution/2wgavatdxvvs",
+      "execution_arn": "arn:aws:sagemaker:ap-southeast-1:123456789012:pipeline/ObjectDetectionAmgTrainingPipeline/execution/2wgavatdxvvs",
       "model": "rt_detr",
       "model_version": null,
       "hyperparameters": {
@@ -155,14 +155,14 @@
         "latency_ms": 57.39,
         "model_size_mb": 66.29
       },
-      "model_artifact": "s3://lta-sam-sandbox/agent_automation/object_detection_amg/models/pipelines-2wgavatdxvvs-TrainModel-ahdbieLu1N/output/model.tar.gz",
+      "model_artifact": "s3://your-s3-bucket/agent_automation/object_detection_amg/models/pipelines-2wgavatdxvvs-TrainModel-ahdbieLu1N/output/model.tar.gz",
       "status": "rejected",
       "is_champion": false,
       "training_date": "2026-09-10T09:07:45Z"
     },
     {
       "experiment_id": "exp-n42x3fyo2qn3",
-      "execution_arn": "arn:aws:sagemaker:ap-southeast-1:654906373546:pipeline/ObjectDetectionAmgTrainingPipeline/execution/n42x3fyo2qn3",
+      "execution_arn": "arn:aws:sagemaker:ap-southeast-1:123456789012:pipeline/ObjectDetectionAmgTrainingPipeline/execution/n42x3fyo2qn3",
       "model": "rt_detr",
       "model_version": null,
       "hyperparameters": {
@@ -183,7 +183,7 @@
         "latency_ms": 58.96,
         "model_size_mb": 66.29
       },
-      "model_artifact": "s3://lta-sam-sandbox/agent_automation/object_detection_amg/models/pipelines-n42x3fyo2qn3-TrainModel-Qpvlcq4UC4/output/model.tar.gz",
+      "model_artifact": "s3://your-s3-bucket/agent_automation/object_detection_amg/models/pipelines-n42x3fyo2qn3-TrainModel-Qpvlcq4UC4/output/model.tar.gz",
       "status": "rejected",
       "is_champion": false,
       "training_date": "2026-09-10T10:29:04Z"
