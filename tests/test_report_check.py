@@ -4,7 +4,7 @@ import cli
 from agents.tools import _backend
 from governance import report_check as rc
 
-ARN = "arn:aws:sagemaker:ap-southeast-1:123456789012:pipeline/ObjectDetectionAmgTrainingPipeline/execution/{n}"
+ARN = "arn:aws:sagemaker:ap-southeast-1:000000000000:pipeline/ObjectDetectionAmgTrainingPipeline/execution/{n}"
 GATE = {"map_50_95": 0.45, "recall": 0.70, "max_latency_ms": 100}
 PASSING_STEPS = [{"name": "QualityGate", "status": "Succeeded"}, {"name": "RegisterModel-RegisterModel", "status": "Succeeded"}]
 FAILING_STEPS = [{"name": "QualityGate", "status": "Succeeded"}, {"name": "ModelBelowThreshold", "status": "Failed"}]

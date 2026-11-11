@@ -50,7 +50,7 @@
   "object_detection_amg": [
     {
       "experiment_id": "exp-xom8w9buioh8",
-      "execution_arn": "arn:aws:sagemaker:ap-southeast-1:123456789012:pipeline/ObjectDetectionAmgTrainingPipeline/execution/xom8w9buioh8",
+      "execution_arn": "arn:aws:sagemaker:ap-southeast-1:000000000000:pipeline/ObjectDetectionAmgTrainingPipeline/execution/xom8w9buioh8",
       "model": "yolo",
       "model_version": null,
       "hyperparameters": {
@@ -78,7 +78,7 @@
     },
     {
       "experiment_id": "exp-27mle7u3duof",
-      "execution_arn": "arn:aws:sagemaker:ap-southeast-1:123456789012:pipeline/ObjectDetectionAmgTrainingPipeline/execution/27mle7u3duof",
+      "execution_arn": "arn:aws:sagemaker:ap-southeast-1:000000000000:pipeline/ObjectDetectionAmgTrainingPipeline/execution/27mle7u3duof",
       "model": "rt_detr",
       "model_version": null,
       "hyperparameters": {
@@ -106,7 +106,7 @@
     },
     {
       "experiment_id": "exp-4ov0xp8t73zs",
-      "execution_arn": "arn:aws:sagemaker:ap-southeast-1:123456789012:pipeline/ObjectDetectionAmgTrainingPipeline/execution/4ov0xp8t73zs",
+      "execution_arn": "arn:aws:sagemaker:ap-southeast-1:000000000000:pipeline/ObjectDetectionAmgTrainingPipeline/execution/4ov0xp8t73zs",
       "model": "rt_detr",
       "model_version": null,
       "hyperparameters": {
@@ -134,7 +134,7 @@
     },
     {
       "experiment_id": "exp-2wgavatdxvvs",
-      "execution_arn": "arn:aws:sagemaker:ap-southeast-1:123456789012:pipeline/ObjectDetectionAmgTrainingPipeline/execution/2wgavatdxvvs",
+      "execution_arn": "arn:aws:sagemaker:ap-southeast-1:000000000000:pipeline/ObjectDetectionAmgTrainingPipeline/execution/2wgavatdxvvs",
       "model": "rt_detr",
       "model_version": null,
       "hyperparameters": {
@@ -162,7 +162,7 @@
     },
     {
       "experiment_id": "exp-n42x3fyo2qn3",
-      "execution_arn": "arn:aws:sagemaker:ap-southeast-1:123456789012:pipeline/ObjectDetectionAmgTrainingPipeline/execution/n42x3fyo2qn3",
+      "execution_arn": "arn:aws:sagemaker:ap-southeast-1:000000000000:pipeline/ObjectDetectionAmgTrainingPipeline/execution/n42x3fyo2qn3",
       "model": "rt_detr",
       "model_version": null,
       "hyperparameters": {

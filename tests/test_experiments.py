@@ -7,7 +7,7 @@ import settings
 from agents.tools import _backend
 
 PROJECT = "object_detection_amg"
-ARN = f"arn:aws:sagemaker:ap-southeast-1:123456789012:pipeline/ObjectDetectionAmgTrainingPipeline/execution/ipx68r86ftpy"
+ARN = f"arn:aws:sagemaker:ap-southeast-1:000000000000:pipeline/ObjectDetectionAmgTrainingPipeline/execution/ipx68r86ftpy"
 METRICS = {"map_50": 0.61, "map_50_95": 0.42, "precision": 0.7, "recall": 0.58, "f1": 0.63, "latency_ms": 12.3, "model_size_mb": 5.4}
 JOB = {
     "HyperParameters": {

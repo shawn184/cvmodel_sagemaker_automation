@@ -9,7 +9,7 @@ from agents.tools import _backend
 
 PROJECT = "object_detection_amg"
 TARGETS = {"map_50_95": 0.30, "recall": 0.50}  # pinned so edits to the project yaml don't break the tests
-ARN = "arn:aws:sagemaker:ap-southeast-1:123456789012:pipeline/ObjectDetectionAmgTrainingPipeline/execution/run{n}"
+ARN = "arn:aws:sagemaker:ap-southeast-1:000000000000:pipeline/ObjectDetectionAmgTrainingPipeline/execution/run{n}"
 
 
 @pytest.fixture

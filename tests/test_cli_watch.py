@@ -7,7 +7,7 @@ import pytest
 import cli
 import settings
 
-ARN = "arn:aws:sagemaker:ap-southeast-1:123456789012:pipeline/DemoTrainingPipeline/execution/4h6faf2xzam5"
+ARN = "arn:aws:sagemaker:ap-southeast-1:000000000000:pipeline/DemoTrainingPipeline/execution/4h6faf2xzam5"
 
 
 def test_extract_execution_arn_from_agent_text():
